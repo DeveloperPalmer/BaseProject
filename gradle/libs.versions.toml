@@ -1,0 +1,133 @@
+[versions]
+# Dependencies
+kotlin = "1.6.10" # See NOTE_CONFIGURATION_PLUGIN (!)
+kotlin-result = "1.1.13"
+kotlin-date-time = "0.3.1"
+kotlin-coroutines = "1.6.0"
+
+## Android
+agp = "7.0.4" # See NOTE_CONFIGURATION_PLUGIN (!)
+
+compose = "1.2.0-beta03"
+# compiler version, sometimes it differs from other compose parts: configured separately
+compose-compiler = "1.1.0"
+accompanist = "0.21.5-rc"
+navigation = "2.4.0-beta02"
+leak-canary = "2.6"
+coil = "1.4.0"
+
+android-extensions = "1.4.0"
+android-annotation = "1.3.0"
+android-preferences = "1.1.1"
+
+android-ktx = "1.4.0"
+android-x-core = "1.8.0"
+android-x-annotation = "1.2.0"
+android-lifecycle = "2.4.1"
+
+android-phoenix = "2.0.0"
+
+
+#Gradle
+version-catalogs = "0.38.0"
+openapi-gradle = "5.1.1" # https://github.com/OpenAPITools/openapi-generator/issues/9935
+
+[libraries]
+## Android
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
+composeUi = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+composeMaterial = { module = "androidx.compose.material:material", version.ref = "compose" }
+composeMaterialIcons = { module = "androidx.compose.material:material-icons-core", version.ref = "compose" }
+composeToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+composeRuntime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
+composeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "compose-compiler" }
+
+accompanistInsets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist" }
+accompanistSystemUiController = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+accompanistPager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
+accompanistPagerIndicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
+accompanistSwipeRefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
+accompanistFlowLayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
+accompanistNavigation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
+
+navigationComponent = { module = "androidx.navigation:navigation-ui", version.ref = "navigation" }
+navigationComponentKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+navigationComponentCompose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+
+leakCanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leak-canary" }
+leakCanaryObjectWatcher = { module = "com.squareup.leakcanary:leakcanary-object-watcher-android", version.ref = "leak-canary" }
+
+coilBase = { module = "io.coil-kt:coil-base", version.ref = "coil" }
+coilCompose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
+processPhoenix = { module = "com.jakewharton:process-phoenix", version.ref = "android-phoenix" }
+
+androidPreferences = { module = "androidx.preference:preference-ktx", version.ref = "android-preferences" }
+
+activityKtx = { module = "androidx.activity:activity-ktx", version.ref = "android-extensions" }
+activityCompose = { module = "androidx.activity:activity-compose", version.ref = "android-extensions" }
+
+androidXAnnotations = { module = "androidx.annotation:annotation", version.ref = "android-annotation" }
+androidXCore = { module = "androidx.core:core", version.ref = "android-x-core" }
+androidXCoreKtx = { module = "androidx.core:core-ktx", version.ref = "android-x-core" }
+
+lifecycleRuntime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "android-lifecycle" }
+lifecycleProcess = { module = "androidx.lifecycle:lifecycle-process", version.ref = "android-lifecycle" }
+lifecycleProcessor = { module = "androidx.lifecycle:lifecycle-compiler", version.ref = "android-lifecycle" }
+
+## KMM
+
+kotlinCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlinCoroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
+
+kotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinReflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinStdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-common", version.ref = "kotlin" }
+kotlinCompiler = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
+kotlinSerializationGradle = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+
+kotlinDateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlin-date-time" }
+
+kotlinResult = { module = "com.michael-bull.kotlin-result:kotlin-result", version.ref = "kotlin-result" }
+kotlinResultCoroutines = { module = "com.michael-bull.kotlin-result:kotlin-result-coroutines", version.ref = "kotlin-result" }
+
+
+###################################################
+
+[bundles]
+coreLibs = [
+    "kotlinStdLib",
+    "kotlinDateTime",
+    "kotlinCoroutinesCore",
+    "kotlinResult"
+]
+
+androidCoreLibs = [
+    "androidXAnnotations",
+    "androidXCore",
+    "androidXCoreKtx",
+]
+
+androidUiLibs = [
+    "composeUi",
+    "composeMaterial",
+    "composeMaterialIcons",
+    "composeToolingPreview",
+    "composeRuntime",
+    "composeCompiler",
+    "accompanistInsets",
+    "accompanistSystemUiController",
+    "accompanistPager",
+    "accompanistPagerIndicators",
+    "accompanistSwipeRefresh",
+    "accompanistFlowLayout",
+    "coilBase",
+    "coilCompose"
+]
+
+
+lifecycleLibs = [
+    "lifecycleRuntime",
+    "lifecycleProcess"
+]

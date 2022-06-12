@@ -1,3 +1,7 @@
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -13,6 +17,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BaseProject"
-include(
+include (
     ":app"
 )
