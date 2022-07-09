@@ -27,10 +27,17 @@ android-lifecycle = "2.4.1"
 
 android-phoenix = "2.0.0"
 
+dagger = "2.41"
+
+## Android Plugins
+kotlinSerialization = "1.6.1"
+sqlDelight = "1.5.3"
+openApiGradle = "5.1.1" # https://github.com/OpenAPITools/openapi-generator/issues/9935
+anvil = "2.4.0"
+protobuf = "3.21.1"
 
 #Gradle
 version-catalogs = "0.38.0"
-openapi-gradle = "5.1.1" # https://github.com/OpenAPITools/openapi-generator/issues/9935
 
 [libraries]
 ## Android
@@ -50,6 +57,8 @@ accompanistPagerIndicators = { module = "com.google.accompanist:accompanist-page
 accompanistSwipeRefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
 accompanistFlowLayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
 accompanistNavigation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
+
+javaxInject = { module = "javax.inject:javax.inject", version = "1" }
 
 navigationComponent = { module = "androidx.navigation:navigation-ui", version.ref = "navigation" }
 navigationComponentKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
@@ -87,11 +96,21 @@ kotlinStdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-common", version.r
 kotlinCompiler = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
 kotlinSerializationGradle = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+daggerCompiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+
 kotlinDateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlin-date-time" }
 
 kotlinResult = { module = "com.michael-bull.kotlin-result:kotlin-result", version.ref = "kotlin-result" }
 kotlinResultCoroutines = { module = "com.michael-bull.kotlin-result:kotlin-result-coroutines", version.ref = "kotlin-result" }
 
+sqlDelightPlugin = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqlDelight" }
+sqlDelightAndroidDriver = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqlDelightCoroutines = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
+sqlDelightRuntime = { module = "com.squareup.sqldelight:runtime", version.ref = "sqlDelight" }
+
+protobufJavalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobuf" }
+protobufProtoc = { module = "com.google.protobuf:protoc", version.ref = "protobuf" }
 
 ###################################################
 
@@ -131,3 +150,10 @@ lifecycleLibs = [
     "lifecycleRuntime",
     "lifecycleProcess"
 ]
+
+[plugins]
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqlDelight = { id = "com.squareup.sqldelight:gradle-plugin:", version.ref = "sqlDelight" }
+openApi = { id = "org.openapi.generator", version.ref = "openApiGradle" }
+anvil = { id = "com.squareup.anvil", version.ref = "anvil"}
+protobuf = { id = "com.google.protobuf", version = "0.8.18" }

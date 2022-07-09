@@ -24,3 +24,8 @@ include (
 include(":core:ui")
 include(":core:domain")
 include(":core:data")
+include(":feature")
+include(":feature:app")
+include(":feature:app:ui")
+include(":feature:app:domain")
+include(":feature:app:data")
