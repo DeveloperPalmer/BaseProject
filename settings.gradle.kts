@@ -1,3 +1,4 @@
+include(":core")
 
 enableFeaturePreview("VERSION_CATALOGS")
 
@@ -20,3 +21,6 @@ rootProject.name = "BaseProject"
 include (
     ":app"
 )
+include(":core:ui")
+include(":core:domain")
+include(":core:data")
